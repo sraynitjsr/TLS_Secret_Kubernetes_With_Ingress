@@ -1,0 +1,24 @@
+replicaCount: 1
+
+image:
+  repository: my-java-rest-api-img
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  name: my-app-service
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  host: my-app.example.com
+  pathType: ImplementationSpecific
+  path: /
+
+ingressTLS:
+  enabled: true
+  host: my-app.example.com
+  pathType: ImplementationSpecific
+  path: /
+  secretName: my-tls-secret
