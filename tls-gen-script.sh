@@ -12,3 +12,7 @@ kubectl create secret tls my-secret-name \
   --cert=certificate.crt \
   --key=private.key \
   --namespace=my-namespace
+
+# Optional: Verify the Secret
+kubectl get secret your-secret-name -n my-namespace
+kubectl describe secret your-secret-name -n my-namespace
