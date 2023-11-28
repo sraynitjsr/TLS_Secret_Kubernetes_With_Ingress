@@ -16,3 +16,6 @@ kubectl create secret tls my-secret-name \
 # Optional: Verify the Secret
 kubectl get secret your-secret-name -n my-namespace
 kubectl describe secret your-secret-name -n my-namespace
+
+# Step 4: After Getting Secret Ready, Let's Delete the Certificate If Not Needed Anymore
+rm certificate.crt
