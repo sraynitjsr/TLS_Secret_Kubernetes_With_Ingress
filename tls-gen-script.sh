@@ -13,11 +13,12 @@ kubectl create secret tls my-secret-name \
   --key=private.key \
   --namespace=my-namespace
 
-# Optional: Verify the Secret
+# Step 4: Verify the Secret
 kubectl get secret your-secret-name -n my-namespace
 kubectl describe secret your-secret-name -n my-namespace
 
-# Step 4: After Getting Secret Ready, Let's Delete the Certificate, Private Key and CSR Files If Not Needed Anymore
+# Step 5: After Getting Secret Ready, Let's Delete the Certificate, Private Key and CSR Files If Not Needed Anymore
 rm certificate.crt
 rm private.key
 rm csr.pem
+
