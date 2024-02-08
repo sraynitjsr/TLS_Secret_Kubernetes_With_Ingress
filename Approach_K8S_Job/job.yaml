@@ -7,11 +7,17 @@ spec:
   template:
     spec:
       containers:
-      - name:  my-container
+      - name: my-container
         image: myImage:myTag
         env:
         - name: MY_IP
           value: {{ .Values.global.masterIpAddress }}
         command: ["/bin/sh", "-c"]
         args: ["/app/my-script.sh"]
+        volumeMounts:
+        - name: data-volume
+          mountPath: /data
+      volumes:
+      - name: data-volume
+        emptyDir: {}
       restartPolicy: Never
