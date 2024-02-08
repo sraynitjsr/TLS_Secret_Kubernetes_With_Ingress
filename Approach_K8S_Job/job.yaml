@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-job
+  namespace: myspace
+spec:
+  template:
+    spec:
+      containers:
+      - name:  my-container
+        image: myImage:myTag
+        env:
+        - name: MY_IP
+          value: {{ .Values.global.masterIpAddress }}
+        command: ["/bin/sh", "-c"]
+        args: ["/app/my-script.sh"]
+      restartPolicy: Never
